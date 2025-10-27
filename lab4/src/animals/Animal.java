@@ -1,9 +1,11 @@
 package animals;
 
 public abstract class Animal {
-    protected int age;
-    public void eat() {
-        System.out.println("Animal” + getName()  „is eating");
+    public String name;
+    public int legs;
+    public Animal(String name, int legs) {
+        this.name = name;
+        this.legs = legs;
     }
-    public abstract String getName();
+    public abstract String getDescription();
 }
