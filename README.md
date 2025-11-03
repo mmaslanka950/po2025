@@ -14,7 +14,7 @@ Diagramy UML
 ```plantuml
 @startuml
 
-package samochod {
+package Symulator {
     class Samochod {
         - String nazwa
         - String nrRejestracyjny
@@ -80,7 +80,7 @@ package samochodgui {
     class SamochodController {
         - ComboBox<Samochod> samochodComboBox
         - ObservableList<Samochod> samochody
-        - Samochod samochod
+        - Samochod Symulator
         - TextField wagaTextField
         - TextField nrRejestracyjnyTextField
         - TextField predkoscTextField
@@ -118,25 +118,25 @@ package samochodgui {
     }
 }
 
-samochod.Samochod --> samochod.Silnik
-samochod.Samochod --> samochod.SkrzyniaBiegow
-samochod.Samochod --> samochod.Pozycja
-samochod.Samochod --|> Thread
-samochod.Samochod *-- samochod.Obserwator
-samochod.Silnik --|> samochod.Komponent
-samochod.SkrzyniaBiegow --|> samochod.Komponent
-samochod.SkrzyniaBiegow --> samochod.Sprzeglo
-samochod.Sprzeglo --|> samochod.Komponent
+Symulator.Samochod --> Symulator.Silnik
+Symulator.Samochod --> Symulator.SkrzyniaBiegow
+Symulator.Samochod --> Symulator.Pozycja
+Symulator.Samochod --|> Thread
+Symulator.Samochod *-- Symulator.Obserwator
+Symulator.Silnik --|> Symulator.Komponent
+Symulator.SkrzyniaBiegow --|> Symulator.Komponent
+Symulator.SkrzyniaBiegow --> Symulator.Sprzeglo
+Symulator.Sprzeglo --|> Symulator.Komponent
 
 
-samochodgui.SamochodController -> samochod.Samochod
-samochodgui.SamochodController ..|> samochod.Obserwator
+samochodgui.SamochodController -> Symulator.Samochod
+samochodgui.SamochodController ..|> Symulator.Obserwator
 
 samochodgui.SamochodController <-- samochodgui.NowySamochodController
 samochodgui.SamochodApplication --> samochodgui.SamochodController
 
-samochod.SamochodException --|> Exception
-samochod.SkrzyniaBiegow -- samochod.SamochodException
+Symulator.SamochodException --|> Exception
+Symulator.SkrzyniaBiegow -- Symulator.SamochodException
 
 hide methods
 hide members
@@ -211,6 +211,6 @@ actor User
 participant SamochodController
 
 User -> SamochodController: onUsunSamochod(event)
-SamochodController -> SamochodController: samochody.remove(samochod)
+SamochodController -> SamochodController: samochody.remove(Symulator)
 SamochodController -> SamochodController: samochodComboBox.selectFirst()
 @enduml
