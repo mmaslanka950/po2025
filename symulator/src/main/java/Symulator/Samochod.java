@@ -20,7 +20,6 @@ public class Samochod {
         this.aktualnaPozycja = new Pozycja();
         this.stanWlaczenia = false;
     }
-
     public void wlacz() {
         silnik.uruchom();
         stanWlaczenia = true;
@@ -28,16 +27,18 @@ public class Samochod {
 
     public void wylacz() {
         silnik.zatrzymaj();
-    //tutaj jescze trzba dodac pare rzeczy albo cos pozmieniac w tym kodzie!!!!!!!!!!!!
-
-
-
+        skrzynia.naLuz();      // tu dochodzi zerowanie biegu
         stanWlaczenia = false;
     }
 
     public void jedzDo(Pozycja cel) {
         if (stanWlaczenia) {
             this.aktualnaPozycja = cel;
+        }
+    }
+    public void jedz(double deltaX, double deltaY) {
+        if (stanWlaczenia) {
+            aktualnaPozycja.aktualizujPozycje(deltaX, deltaY);
         }
     }
 
@@ -50,7 +51,15 @@ public class Samochod {
     }
 
     public double getAktPredkosc() {
-        double v = silnik.getObroty() * 0.01;
+        double v = silnik.getObroty() * skrzynia.getAktPrzelozenie() * 0.001;
         return Math.min(v, predkoscMax);
+    }
+    public String getOpisStanu() {
+        return "Samochod " + nrRejest + " (" + model + ")\n" +
+                " wlaczony: " + stanWlaczenia + "\n" +
+                " pozycja: " + aktualnaPozycja.getPozycja() + "\n" +
+                " bieg: " + skrzynia.getAktBieg() + "\n" +
+                " obroty: " + silnik.getObroty() + "\n" +
+                " predkosc: " + getAktPredkosc();
     }
 }

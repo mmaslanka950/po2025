@@ -11,7 +11,8 @@ public class Silnik extends Komponent {
         this.obroty = 0;
     }
     public void uruchom() {
-        obroty = 678;
+        // np. obroty biegu jałowego
+        obroty = 800;
     }
     public void zatrzymaj() {
         obroty = 0;
@@ -21,5 +22,14 @@ public class Silnik extends Komponent {
     }
     public int getObroty() {
         return obroty;
+    }
+    public void ustawObroty(int obroty) {
+        if (obroty < 0) {
+            this.obroty = 0;
+        } else if (obroty > maxObroty) {
+            this.obroty = maxObroty;
+        } else {
+            this.obroty = obroty;
+        }
     }
 }
