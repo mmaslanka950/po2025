@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.samochodgui2.HelloController">
+
+    <top>
+        <VBox spacing="5.0">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu text="Plik"/>
+                        <Menu text="Edycja"/>
+                    </menus>
+                </MenuBar>
+
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                    </padding>
+                    <children>
+                        <Label text="Samochód:"/>
+                        <ComboBox fx:id="samochodComboBox"
+                                  prefWidth="200.0"
+                                  editable="true"
+                                  promptText="Wpisz lub wybierz samochód"/>
+                        <Button fx:id="dodajNowyBtn" text="Dodaj nowy" onAction="#onDodajNowySamochod">
+                            <tooltip>
+                                <Tooltip text="Dodaj aktualnie wpisany samochód do listy" />
+                            </tooltip>
+                        </Button>
+                        <Button fx:id="usunBtn" text="Usuń" onAction="#onUsunSamochod">
+                            <tooltip>
+                                <Tooltip text="Usuń wybrany samochód z listy" />
+                            </tooltip>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- LEWO: panel z parametrami -->
+    <left>
+        <Accordion prefWidth="260.0" BorderPane.alignment="CENTER">
+            <panes>
+
+                <!-- Samochód -->
+                <TitledPane text="Samochód" expanded="true">
+                    <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                            <padding>
+                                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Model" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="modelField" promptText="np. Audi A4"
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Nr rejestracyjny" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="nrRejField"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <Label text="Dodawanie: wpisz model/nr rej. i kliknij 'Dodaj nowy'" style="-fx-font-size: 11px; -fx-text-fill: #666;"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+                                <Label text="Waga" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="samochodWagaField"
+                                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <Label text="Prędkość" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                <TextField fx:id="predkoscField"
+                                           GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                                <HBox spacing="5.0"
+                                      GridPane.rowIndex="5" GridPane.columnIndex="0"
+                                      GridPane.columnSpan="2">
+                                    <children>
+                                        <Button text="Włącz" onAction="#onWlaczSamochod"/>
+                                        <Button text="Wyłącz" onAction="#onWylaczSamochod"/>
+                                        <Button text="Button" onAction="#onExtraButton"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+
+                <!-- Skrzynia biegów -->
+                <TitledPane text="Skrzynia Biegów">
+                    <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                            <padding>
+                                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Nazwa" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="skrzyniaNazwaField"
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Cena" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="skrzyniaCenaField"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Waga" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <TextField fx:id="skrzyniaWagaField"
+                                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Bieg" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="biegField"
+                                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <HBox spacing="5.0"
+                                      GridPane.rowIndex="4" GridPane.columnIndex="0"
+                                      GridPane.columnSpan="2">
+                                    <children>
+                                        <Button text="Zwiększ bieg" onAction="#onZwiekszBieg"/>
+                                        <Button text="Zmniejsz bieg" onAction="#onZmniejszBieg"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+
+                <!-- Silnik -->
+                <TitledPane text="Silnik">
+                    <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                            <padding>
+                                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Nazwa" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="silnikNazwaField"
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Cena" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="silnikCenaField"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Waga" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <TextField fx:id="silnikWagaField"
+                                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Obroty" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="obrotyField"
+                                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <HBox spacing="5.0"
+                                      GridPane.rowIndex="4" GridPane.columnIndex="0"
+                                      GridPane.columnSpan="2">
+                                    <children>
+                                        <Button text="Dodaj gazu" onAction="#onDodajGazu"/>
+                                        <Button text="Ujmij gazu" onAction="#onUjmijGazu"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+
+                <!-- Sprzęgło -->
+                <TitledPane text="Sprzęgło">
+                    <content>
+                        <GridPane hgap="5.0" vgap="5.0">
+                            <padding>
+                                <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <children>
+                                <Label text="Nazwa" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="sprzegloNazwaField"
+                                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Cena" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="sprzegloCenaField"
+                                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Waga" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <TextField fx:id="sprzegloWagaField"
+                                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Stan" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="sprzegloStanField"
+                                           editable="false"
+                                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <HBox spacing="5.0"
+                                      GridPane.rowIndex="4" GridPane.columnIndex="0"
+                                      GridPane.columnSpan="2">
+                                    <children>
+                                        <Button text="Naciśnij" onAction="#onWcisnijSprzeglo"/>
+                                        <Button text="Zwolnij" onAction="#onZwolnijSprzeglo"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+
+            </panes>
+        </Accordion>
+    </left>
+
+    <!-- CENTRUM: mapa z autem -->
+    <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Mapa" layoutX="20.0" layoutY="20.0"/>
+                <Label text="Car" layoutX="40.0" layoutY="60.0"/>
+                <ImageView fx:id="carImage"
+                           fitWidth="64.0" fitHeight="64.0"
+                           layoutX="80.0" layoutY="50.0"
+                           preserveRatio="true" pickOnBounds="true"/>
+            </children>
+        </AnchorPane>
+    </center>
+
+</BorderPane>
