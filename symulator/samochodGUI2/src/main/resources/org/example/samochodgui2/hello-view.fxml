@@ -45,12 +45,12 @@
         </VBox>
     </top>
 
-    <!-- LEWO: panel z parametrami -->
+
     <left>
         <Accordion prefWidth="260.0" BorderPane.alignment="CENTER">
             <panes>
 
-                <!-- Samochód -->
+
                 <TitledPane text="Samochód" expanded="true">
                     <content>
                         <GridPane hgap="5.0" vgap="5.0">
@@ -86,7 +86,7 @@
                                     <children>
                                         <Button text="Włącz" onAction="#onWlaczSamochod"/>
                                         <Button text="Wyłącz" onAction="#onWylaczSamochod"/>
-                                        <Button text="Button" onAction="#onExtraButton"/>
+<!--   moze sie przydac kolejny przycik<Button text="Button" onAction="#onExtraButton"/>-->
                                     </children>
                                 </HBox>
                             </children>
@@ -94,7 +94,7 @@
                     </content>
                 </TitledPane>
 
-                <!-- Skrzynia biegów -->
+
                 <TitledPane text="Skrzynia Biegów">
                     <content>
                         <GridPane hgap="5.0" vgap="5.0">
@@ -135,7 +135,7 @@
                     </content>
                 </TitledPane>
 
-                <!-- Silnik -->
+
                 <TitledPane text="Silnik">
                     <content>
                         <GridPane hgap="5.0" vgap="5.0">
@@ -176,7 +176,7 @@
                     </content>
                 </TitledPane>
 
-                <!-- Sprzęgło -->
+
                 <TitledPane text="Sprzęgło">
                     <content>
                         <GridPane hgap="5.0" vgap="5.0">
@@ -222,7 +222,7 @@
         </Accordion>
     </left>
 
-    <!-- CENTRUM: mapa z autem -->
+
     <center>
         <AnchorPane fx:id="mapPane"
                     onMouseClicked="#onMapClicked"

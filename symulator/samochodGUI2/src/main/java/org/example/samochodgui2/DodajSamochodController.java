@@ -1,7 +1,6 @@
 package org.example.samochodgui2;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -17,7 +16,7 @@ public class DodajSamochodController {
     @FXML private ComboBox<String> gearboxComboBox;
 
     @FXML private Button confirmButton;
-    @FXML private Button cancelButton;
+    @FXML private Button cancelButton;// to sie przyda jeszcze
 
     private HelloController mainController;
 
@@ -56,7 +55,6 @@ public class DodajSamochodController {
             return;
         }
 
-        // Prosty mapping parametrów na podstawie wyboru
         Silnik silnik;
         switch (engineType) {
             case "Benzyna 1.4":

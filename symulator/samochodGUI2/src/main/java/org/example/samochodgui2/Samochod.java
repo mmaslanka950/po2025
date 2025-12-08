@@ -27,7 +27,7 @@ public class Samochod {
         return model;
     }
     public double getPredkoscMax() {
-        return predkoscMax;
+        return predkoscMax;// to mozer sie przyda na razie nie uzywam
     }
     public Silnik getSilnik() {
         return silnik;
@@ -39,7 +39,7 @@ public class Samochod {
         return skrzynia != null ? skrzynia.getSprzeglo() : null;
     }
     public Pozycja getAktPozycja() {
-        return aktualnaPozycja;
+        return aktualnaPozycja;// to mozer sie przyda na razie nie uzywam
     }
     public double getWaga() {
         double w = 0.0;
@@ -65,7 +65,7 @@ public class Samochod {
         stanWlaczenia = false;
     }
 
-    public void jedzDo(Pozycja cel) {
+    public void jedzDo(Pozycja cel) {// to mozer sie przyda na razie nie uzywam
         if (stanWlaczenia && cel != null) {
             this.aktualnaPozycja = cel;
         }
@@ -93,12 +93,5 @@ public class Samochod {
         int noweObroty = silnik.getObroty() - 500;
         silnik.ustawObroty(noweObroty);
     }
-    public String getOpisStanu() {
-        return "Samochod " + nrRejest + " (" + model + ")\n" +
-                " wlaczony: " + stanWlaczenia + "\n" +
-                " pozycja: " + aktualnaPozycja.getPozycja() + "\n" +
-                " bieg: " + (skrzynia != null ? skrzynia.getAktualnyBieg() : "-") + "\n" +
-                " obroty: " + (silnik != null ? silnik.getObroty() : 0) + "\n" +
-                " predkosc: " + getAktPredkosc();
-    }
+
 }

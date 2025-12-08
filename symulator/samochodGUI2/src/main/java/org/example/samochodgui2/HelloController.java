@@ -89,8 +89,8 @@ public class HelloController {
 
 
         Sprzeglo sprzeglo = new Sprzeglo("Sprzęgło standardowe", 8.0, 500.0);
-        SkrzyniaBiegow skrzynia = new SkrzyniaBiegow("Manualna 10-biegowa", 40.0, 2000.0, 6, sprzeglo);
-        Silnik silnik = new Silnik("Benzyna 8.0", 120.0, 8000.0, 6500);
+        SkrzyniaBiegow skrzynia = new SkrzyniaBiegow("Manualna 6-biegowa", 40.0, 2000.0, 6, sprzeglo);
+        Silnik silnik = new Silnik("Benzyna 2.0", 120.0, 8000.0, 6500);
         Samochod s = new Samochod("K1 Friz", "Audi A9", 200.0, silnik, skrzynia);
         addCarToList(s);
 
@@ -157,13 +157,13 @@ public class HelloController {
             return;
         }
 
-        // Samochód
+
         modelField.setText(currentCar.getModel());
         nrRejField.setText(currentCar.getNrRejestr());
         samochodWagaField.setText(String.format("%.1f", currentCar.getWaga()));
         predkoscField.setText(String.format("%.1f", currentCar.getAktPredkosc()));
 
-        // Skrzynia
+
         SkrzyniaBiegow skrzynia = currentCar.getSkrzynia();
         if (skrzynia != null) {
             skrzyniaNazwaField.setText(skrzynia.getNazwa());
@@ -172,7 +172,7 @@ public class HelloController {
             biegField.setText(String.valueOf(skrzynia.getAktualnyBieg()));
         }
 
-        // Silnik
+
         Silnik silnik = currentCar.getSilnik();
         if (silnik != null) {
             silnikNazwaField.setText(silnik.getNazwa());
@@ -181,7 +181,7 @@ public class HelloController {
             obrotyField.setText(String.valueOf(silnik.getObroty()));
         }
 
-        // Sprzęgło
+
         Sprzeglo sprzeglo = currentCar.getSprzeglo();
         if (sprzeglo != null) {
             sprzegloNazwaField.setText(sprzeglo.getNazwa());
@@ -191,7 +191,6 @@ public class HelloController {
         }
     }
 
-    // --- Handlery przycisków ---
 
     @FXML
     private void onWlaczSamochod() {
@@ -213,7 +212,7 @@ public class HelloController {
 
     @FXML
     private void onExtraButton() {
-        System.out.println("Button kliknięty");
+        System.out.println("Button klikniety i cosik sie dzieje");
     }
 
     @FXML
