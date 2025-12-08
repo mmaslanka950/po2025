@@ -1,4 +1,4 @@
-package Symulator;
+package org.example.samochodgui2;
 
 public class SkrzyniaBiegow extends Komponent {
     private int aktualnyBieg;
@@ -30,12 +30,21 @@ public class SkrzyniaBiegow extends Komponent {
         aktualnyBieg = 0;
         przeliczPrzelozenie();
     }
+    public int getAktualnyBieg() {
+        return aktualnyBieg;
+    }
+
+    // stara nazwa też zostawiona, jakby gdzieś była użyta
     public int getAktBieg() {
         return aktualnyBieg;
     }
     public double getAktPrzelozenie() {
         return aktualnePrzelozenie;
     }
+    public Sprzeglo getSprzeglo() {
+        return sprzeglo;
+    }
+
     private void przeliczPrzelozenie() {
         this.aktualnePrzelozenie = aktualnyBieg * 0.5;
     }

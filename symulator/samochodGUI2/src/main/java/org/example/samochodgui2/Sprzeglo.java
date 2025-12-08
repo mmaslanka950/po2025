@@ -1,4 +1,4 @@
-package Symulator;
+package org.example.samochodgui2;
 
 public class Sprzeglo extends Komponent {
 
@@ -16,6 +16,9 @@ public class Sprzeglo extends Komponent {
         stanSprzegla = false;
     }
     public boolean isStanSprzegla() {
+        return stanSprzegla;
+    }
+    public boolean isWcisniete() {
         return stanSprzegla;
     }
 }

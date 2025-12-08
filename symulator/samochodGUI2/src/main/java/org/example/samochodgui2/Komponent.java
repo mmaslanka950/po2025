@@ -1,4 +1,4 @@
-package Symulator;
+package org.example.samochodgui2;
 
 public abstract class Komponent {
     protected String nazwa;

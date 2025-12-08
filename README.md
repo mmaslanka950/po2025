@@ -118,25 +118,25 @@ package samochodgui {
     }
 }
 
-Symulator.Samochod --> Symulator.Silnik
-Symulator.Samochod --> Symulator.SkrzyniaBiegow
-Symulator.Samochod --> Symulator.Pozycja
-Symulator.Samochod --|> Thread
-Symulator.Samochod *-- Symulator.Obserwator
-Symulator.Silnik --|> Symulator.Komponent
-Symulator.SkrzyniaBiegow --|> Symulator.Komponent
-Symulator.SkrzyniaBiegow --> Symulator.Sprzeglo
-Symulator.Sprzeglo --|> Symulator.Komponent
+org.example.samochodgui2.Samochod --> org.example.samochodgui2.Silnik
+org.example.samochodgui2.Samochod --> org.example.samochodgui2.SkrzyniaBiegow
+org.example.samochodgui2.Samochod --> org.example.samochodgui2.Pozycja
+org.example.samochodgui2.Samochod --|> Thread
+org.example.samochodgui2.Samochod *-- Symulator.Obserwator
+org.example.samochodgui2.Silnik --|> org.example.samochodgui2.Komponent
+org.example.samochodgui2.SkrzyniaBiegow --|> org.example.samochodgui2.Komponent
+org.example.samochodgui2.SkrzyniaBiegow --> org.example.samochodgui2.Sprzeglo
+org.example.samochodgui2.Sprzeglo --|> org.example.samochodgui2.Komponent
 
 
-samochodgui.SamochodController -> Symulator.Samochod
+samochodgui.SamochodController -> org.example.samochodgui2.Samochod
 samochodgui.SamochodController ..|> Symulator.Obserwator
 
 samochodgui.SamochodController <-- samochodgui.NowySamochodController
 samochodgui.SamochodApplication --> samochodgui.SamochodController
 
 Symulator.SamochodException --|> Exception
-Symulator.SkrzyniaBiegow -- Symulator.SamochodException
+org.example.samochodgui2.SkrzyniaBiegow -- Symulator.SamochodException
 
 hide methods
 hide members
